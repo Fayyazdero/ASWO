@@ -1,22 +1,23 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Header} from "./components/Header"
-import {Navbar} from "./components/Navbar"
-import {Card} from "./components/Card"
-import './App.css';
+import React, { useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Header } from "./components/Header";
+import { Navbar } from "./components/Navbar";
+import { Card } from "./components/Card";
+import "./App.css";
+import { PostCard } from "./components/PostCard";
+
 
 function App() {
-  const header = {
-    name: 'Header',
-    nav: 'nav'
-  }
-  
-
   return (
     <div className="App">
-      <Header headerName={header} title={true ? "small " :"tssssss"} name="chckingg"/>
       <Navbar/>
-      <Card/>
+        <Switch>
+          <Route path="/fayaz" component={PostCard} />
+          <Route path="/individual-developer" component={Card} />
+          <Route path="/shop" component={Card} />
+        </Switch>
+       {/* here is footer */}
     </div>
   );
 }
